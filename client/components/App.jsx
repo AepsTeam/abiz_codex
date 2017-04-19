@@ -1,13 +1,13 @@
 import React from 'react'
 import Menu from './layout/Menu.jsx'
-import VHeader from './layout/Header.jsx'
+import Nav from './layout/Nav.jsx'
 import { Link } from 'react-router'
 
 export default class App extends React.Component {
     render() {
         return (
-            <div>
-                <VHeader history={false}></VHeader>
+            <div >
+                <Nav history={false}></Nav>
                 {this.props.children}
                 <Menu></Menu>
             </div>

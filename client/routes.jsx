@@ -6,7 +6,7 @@ import TopicListContainer from './components/cnode/TopicListContainer'
 
 export default (
     <Route name="app" path="/" component={App}>
-        <IndexRedirect to="/all" />
-        <Route path="/:tab" component={TopicListContainer}></Route>
+        <IndexRedirect to="/app/all" />
+        <Route path="/app/:tab" component={TopicListContainer}></Route>
     </Route>
 ) 
