@@ -1,12 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router'
 
-export default class SubNav extends React.Component{
-    render(){
-        return(
-            <ul className="nav nav-pills nav-stacked" style={width:'200px'}>
-                <li><a href="javascript:;">前言</a></li>
-                <li><a href="javascript:;">开始</a></li> 
-                <li><a href="javascript:;">新人须知</a></li>                     
+export default class SubNav extends React.Component {
+    render() {
+        const { navData } = this.props
+        const navStyle = { width: '200px' }
+        const navDomStr = navData.map((nav,index) =>
+            <li key={index}><Link to={nav.url} >{nav.name}</Link></li> 
+        )
+        return (
+            <ul className="nav nav-pills nav-stacked" style={navStyle}>
+                {navDomStr}
             </ul>
         )
     }
