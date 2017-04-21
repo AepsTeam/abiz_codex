@@ -1,7 +1,7 @@
 import React from 'react'
 import SubNav from '../layout/SubNav'
 
-export default class Basic extends React.Component {
+export default class Interaction extends React.Component {
     constructor(props) {
         super(props)
         this.navData = [
@@ -10,10 +10,8 @@ export default class Basic extends React.Component {
             { name: '新人须知', url: '/ued/regular/new/' }
         ]
     }
-    componentDidMount() {
-        
-    }
     render() {
+        const { md } = this.props
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -21,7 +19,7 @@ export default class Basic extends React.Component {
                         <SubNav navData={this.navData}></SubNav>
                     </div>
                     <div className="col-md-8">
-                        1111111111111
+                        {this.props.children}
                     </div>
                 </div>
             </div>

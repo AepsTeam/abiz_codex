@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux-immutable';
-import cnode from './cnode';
+import { combineReducers } from 'redux-immutable'
+import md from './md'
 const rootReducer = combineReducers({
-    cnode
+    md
 })
 export default rootReducer

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 import '../../style/sass/layout.scss'
 
 export default class Nav extends React.Component {
@@ -11,23 +11,20 @@ export default class Nav extends React.Component {
             <nav>
                 <div className="container-fluid bg-primary ">
                     <div className="navbar-header">
-                        <a href="javascript:;" className="navbar-brand">ABIZ_UED</a>
+                        <a href="javascript:;" className="navbar-brand">Codex</a>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
                         <li>
-                            <Link to="/ued/regular/">常规</Link>
+                            <Link to="/ued/common/" activeClassName="active">通用规范</Link>
                         </li>
                         <li>
-                            <Link to="/ued/interaction/">常规</Link>
+                            <Link to="/ued/pm/" activeClassName="active">项目规范</Link>
                         </li>
                         <li>
-                            <Link to="/ued/vision/">视觉</Link>
+                            <Link to="/ued/plan/" activeClassName="active">方案</Link>
                         </li>
                         <li>
-                            <Link to="/ued/css/">css</Link>
-                        </li>
-                        <li>
-                            <Link to="/ued/js/">js</Link>
+                            <Link to="/ued/resource/" activeClassName="active">资源</Link>
                         </li>
                     </ul>
                 </div>
