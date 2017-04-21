@@ -19,8 +19,8 @@ const list = (
     }
 }
 
-const cnodeReducer = combineReducers({
+const mdReducer = combineReducers({
     list
 })
 
-export default cnodeReducer
+export default mdReducer

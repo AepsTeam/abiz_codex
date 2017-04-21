@@ -1,5 +1,5 @@
 import React from 'react'
-import SideBarNav from '../layout/SideBarNav'
+import SideBarNav from '../../layout/SideBarNav'
 
 export default class Basic extends React.Component {
     constructor(props) {
