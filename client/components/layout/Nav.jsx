@@ -15,16 +15,16 @@ export default class Nav extends React.Component {
                     </div>
                     <ul className="nav navbar-nav navbar-right">
                         <li>
-                            <Link to="/ued/common/" activeClassName="active">通用规范</Link>
+                            <Link to="/codex/common/" activeClassName="active">通用规范</Link>
                         </li>
                         <li>
-                            <Link to="/ued/pm/" activeClassName="active">项目规范</Link>
+                            <Link to="/codex/pm/" activeClassName="active">项目规范</Link>
                         </li>
                         <li>
-                            <Link to="/ued/plan/" activeClassName="active">方案</Link>
+                            <Link to="/codex/plan/" activeClassName="active">方案</Link>
                         </li>
                         <li>
-                            <Link to="/ued/resource/" activeClassName="active">资源</Link>
+                            <Link to="/codex/resource/" activeClassName="active">资源</Link>
                         </li>
                     </ul>
                 </div>

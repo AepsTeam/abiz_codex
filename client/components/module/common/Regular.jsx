@@ -5,9 +5,9 @@ export default class Basic extends React.Component {
     constructor(props) {
         super(props)
         this.sideBarData = [
-            { name: '前言', url: '/ued/regular/frontier/' },
-            { name: '开始', url: '/ued/regular/begin/' },
-            { name: '新人须知', url: '/ued/regular/new/' }
+            { name: '前言', url: '/codex/common/regular/frontier/' },
+            { name: '开始', url: '/codex/common/regular/begin/' },
+            { name: '新人须知', url: '/codex/common/regular/new/' }
         ]
     }
     render() {

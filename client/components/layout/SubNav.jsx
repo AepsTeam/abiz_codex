@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 export default class SubNav extends React.Component {
     render() {
         const { navData, title } = this.props
@@ -9,11 +10,15 @@ export default class SubNav extends React.Component {
             <div className="row">
                 <div className="col-md-offset-1 col-md-2">
                     <div className="navbar-header">
-                        <a href="javascript:;" className="navbar-brand">{title}</a>
+                        <a href="javascript:;" className="navbar-brand">
+                            <strong>{title}</strong>  
+                        </a>
                     </div>
                 </div>
                 <div className="col-md-8">
-                    {navDomStr}
+                    <ul className="nav navbar-nav navbar-right">
+                        {navDomStr}
+                    </ul>
                 </div>
             </div>
         )
