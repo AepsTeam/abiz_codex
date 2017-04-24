@@ -16,6 +16,11 @@ import Js from './components/module/common/Js'
 
 // pm
 import PM from './components/module/pm/index'
+// plan
+import Plan from './components/module/plan/index'
+// resource
+import Resource from './components/module/resource/index'
+
 
 import MarkdownContainer from './components/module/MarkdownContainer.jsx'
 
@@ -48,8 +53,8 @@ export default (
                 </Route>
             </Route>
             <Route path="pm" component={PM}></Route>
-            <Route path="plan" component={Regular}></Route>
-            <Route path="resource" component={Regular}></Route>
+            <Route path="plan" component={Plan}></Route>
+            <Route path="resource" component={Resource}></Route>
         </Route>
     </Route>
 ) 
