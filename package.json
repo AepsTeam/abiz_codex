@@ -41,6 +41,7 @@
     "marked": "^0.3.6",
     "morgan": "~1.8.1",
     "react": "^15.5.4",
+    "react-ace": "^4.2.1",
     "react-dom": "^15.5.4",
     "react-immutable-proptypes": "^2.1.0",
     "react-redux": "^5.0.4",
