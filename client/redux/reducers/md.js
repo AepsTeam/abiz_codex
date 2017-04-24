@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 import { fromJS, List } from 'immutable'
 import * as constant from '../constant/md'
 
-const list = (
-    state = fromJS({ isFetching: false, content: '' }),
+const mdContent = (
+    state = fromJS({ isFetching: false, data: '11' }),
     action
 ) => {
     switch (action.type) {
@@ -11,7 +11,7 @@ const list = (
             return state.set('isFetching', true)
         case constant.SHOW_MD_REQUEST_SUCCESS:
             return state.set('isFetching', false)
-                .set('content', action.data.content)
+                .set('data', action.data)
         case constant.SHOW_MD_REQUEST_FAILURE:
             return state.set('isFetching', false)
         default:
@@ -20,7 +20,7 @@ const list = (
 }
 
 const mdReducer = combineReducers({
-    list
+    mdContent
 })
 
 export default mdReducer

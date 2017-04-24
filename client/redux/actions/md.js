@@ -14,7 +14,7 @@ export function mdBegin() {
 export function getMD(param) {
     return dispatch => {
         dispatch(mdBegin())
-        const url = ''
+        const url = '/md' + param.pathname
         const str = getUrl(url, param)
         fetch(str, { method: "GET" }).then(function (response) {
             return response.json()

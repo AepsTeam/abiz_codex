@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux-immutable'
-import md from './md'
+import mdReducer from './md'
 const rootReducer = combineReducers({
-    md
+    mdReducer
 })
 export default rootReducer

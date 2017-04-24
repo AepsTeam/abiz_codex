@@ -6,7 +6,7 @@ import { getMD } from '../../redux/actions/md'
 
 function mapStateToProps(state, ownProps) {
     return {
-        md: state.get('rootReducer').get('md')
+        content: state.get('rootReducer').get('mdReducer').get('mdContent').get('data')
     }
 }
 function mapDispatchToProps(dispatch, ownProps) {
@@ -20,21 +20,22 @@ function mapDispatchToProps(dispatch, ownProps) {
 
 class MarkdownContainer extends React.Component {
     componentDidMount() {
-        const { getContent } = this.props
-        getContent()
+        const { getContent, location } = this.props
+        getContent({pathname: location.pathname})
     }
     componentWillReceiveProps(nextProps) {
         const { getContent } = this.props
         console.log(nextProps.params.tab)
         if (this.props.params.tab != nextProps.params.tab) {
             document.getElementsByTagName('body')[0].scrollTop = 0
-            getContent()
+            getContent({pathname: nextProps.location.pathname})
         }
     }
     render() {
-        const { md } = this.props
+        const { content } = this.props
+        console.log(content)    
         return (
-            <Markdown></Markdown>
+            <Markdown content={content}></Markdown>
         )
     }
 }
