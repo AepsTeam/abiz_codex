@@ -11,7 +11,7 @@ export default class Nav extends React.Component {
             <nav>
                 <div className="container-fluid bg-primary ">
                     <div className="navbar-header">
-                        <a href="javascript:;" className="navbar-brand">Codex</a>
+                        <Link to="/home" className="navbar-brand">Codex</Link>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
                         <li>

@@ -3,6 +3,9 @@ import { Route, IndexRedirect } from 'react-router'
 
 import App from './components/App.jsx'
 
+//home
+import Home from './components/module/Home'
+
 // common
 import CommonIndex from './components/module/common/Index'
 import Regular from './components/module/common/Regular'
@@ -11,30 +14,42 @@ import Vision from './components/module/common/Vision'
 import Css from './components/module/common/Css'
 import Js from './components/module/common/Js'
 
+// pm
+import PM from './components/module/pm/index'
+
 import MarkdownContainer from './components/module/MarkdownContainer.jsx'
 
 export default (
-    <Route name="app" path="/codex" component={App}>
-        <IndexRedirect to="/codex/common/regular/frontier" />
-        <Route path="common" component={CommonIndex}>
-            <Route path="regular" component={Regular} >
-                <Route path=":tab"  component={MarkdownContainer}/>
+    <Route name="app" path="/" component={App}>
+        <IndexRedirect to="/home" />
+        <Route path="home" component={Home}/>
+        <Route path="codex">
+            <Route path="common" component={CommonIndex}>
+                <IndexRedirect to="/codex/common/regular/frontier" />
+                <Route path="regular" component={Regular} >
+                    <IndexRedirect to="/codex/common/regular/frontier" />
+                    <Route path=":tab"  component={MarkdownContainer}/>
+                </Route>
+                <Route path="interaction" component={Interaction} >
+                    <IndexRedirect to="/codex/common/interaction/define" />
+                    <Route path=":tab"  component={MarkdownContainer} />
+                </Route>
+                <Route path="vision" component={Vision} >
+                    <IndexRedirect to="/codex/common/vision/begin" />
+                    <Route path=":tab"  component={MarkdownContainer} />
+                </Route>
+                <Route path="css" component={Css} >
+                    <IndexRedirect to="/codex/common/css/begin" />
+                    <Route path=":tab"  component={MarkdownContainer} />
+                </Route>
+                <Route path="js" component={Js} >
+                    <IndexRedirect to="/codex/common/js/language" />
+                    <Route path=":tab" component={MarkdownContainer} />
+                </Route>
             </Route>
-             <Route path="interaction" component={Interaction} >
-                <Route path=":tab"  component={MarkdownContainer} />
-            </Route>
-             <Route path="vision" component={Vision} >
-                <Route path=":tab"  component={MarkdownContainer} />
-            </Route>
-             <Route path="css" component={Css} >
-                <Route path=":tab"  component={MarkdownContainer} />
-            </Route>
-             <Route path="js" component={Js} >
-                <Route path=":tab" component={MarkdownContainer} />
-            </Route>
+            <Route path="pm" component={PM}></Route>
+            <Route path="plan" component={Regular}></Route>
+            <Route path="resource" component={Regular}></Route>
         </Route>
-        <Route path="pm" component={Regular}></Route>
-        <Route path="plan" component={Regular}></Route>
-        <Route path="resource" component={Regular}></Route>
     </Route>
 ) 
