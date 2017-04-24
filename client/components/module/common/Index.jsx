@@ -11,16 +11,16 @@ export default class CommonIndex extends React.Component {
             { name: 'css', url: '/codex/common/css/' },
             { name: 'js', url: '/codex/common/js/' }
         ]
-                   
-        this.title = '常规'
+        this.titleObj = {regular:'常规',interaction:'交互',vision:'视觉',css:'css',js:'js'}
+        this.getSubTitle = this.getSubTitle.bind(this)
+        this.title = this.getSubTitle(this.props)
     }
     getSubTitle(props){
-        const location = props.location.pathname
-        const pathArr = location.split('/')
-        const url = location.split('/').splice(0)
+        const str = props.location.pathname.split('/')[3]
+        return this.titleObj[str]
     }
     componentWillReceiveProps(nextProps){
-        console.log(nextProps)
+        this.title = this.getSubTitle(nextProps)
     }
     render() {
         return (

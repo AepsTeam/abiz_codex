@@ -1,5 +1,5 @@
 import React from 'react'
-import Markdown from './Markdown'
+import Markdown from './MarkdownEdit'
 import { connect } from 'react-redux'
 import { getMD } from '../../redux/actions/md'
 
