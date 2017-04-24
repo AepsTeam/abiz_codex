@@ -15,23 +15,23 @@ hr{
 .pm {
     padding-top:100px;
     .image-wrapper{
+        display: inline-block;
         width:100%;
         height: 160px;
         border: 1px solid #ccc;
         text-align: center;
         padding-top: 20px;
-        a{
-            display: inline-block;
-            width: 100%;
-            img{
-                width:80%;
-                height: 80px;
-            }
-            margin-bottom: 10px;
+        margin-bottom: 10px;
+        img{
+            margin: 0 10% 10px 10%;
+            width:80%;
+            height: 80px;
         }
-        
         span{
             font-size: 16px;
+        }
+        &:hover{
+            text-decoration: none;
         }
     }
     
