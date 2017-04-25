@@ -11,12 +11,18 @@ export default class extends React.Component {
     constructor(props) {
         super(props)
         this.onChange = this.onChange.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
         this.state = {
             editContent: props.content
         }
     }
     onChange(newValue) {
         this.setState({ editContent: newValue })
+    }
+    onSubmit() {
+        const { saveHandle, path } = this.props
+        const { editContent } = this.state
+        saveHandle({ pathname: path, content: editContent })
     }
     componentWillReceiveProps(nextProps) {
         const { content } = nextProps
@@ -50,7 +56,7 @@ export default class extends React.Component {
                         </div>
                     </div>
                     <div className="row fixed">
-                        <button className="btn btn-primary btn-md" type="button">提交</button>
+                        <button onClick={this.onSubmit} className="btn btn-primary btn-md" type="button">提交</button>
                         <Link to={path} className="btn btn-default btn-md" role="button">取消</Link>
                     </div>
                 </div>

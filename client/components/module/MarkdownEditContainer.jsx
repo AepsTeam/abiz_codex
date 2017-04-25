@@ -1,7 +1,7 @@
 import React from 'react'
 import Markdown from './MarkdownEdit'
 import { connect } from 'react-redux'
-import { getMD } from '../../redux/actions/md'
+import { getMD, saveMD } from '../../redux/actions/md'
 
 
 function mapStateToProps(state, ownProps) {
@@ -12,8 +12,10 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
     return {
         getContent: function (params) {
-            params = Object.assign({}, params, { tab: ownProps.params.tab })
             dispatch(getMD(params))
+        },
+        saveContent: function (params) {
+            dispatch(saveMD(params))
         }
     }
 }
@@ -27,7 +29,7 @@ class MarkdownEditContainer extends React.Component {
     getPath(pathname) {
         const pathArr = pathname.split('/')
         const path = '/' + pathArr.splice(2, pathArr.length - 1).join('/')
-        this.path = path
+        this.pathname = path
         return path
     }
     componentDidMount() {
@@ -42,9 +44,9 @@ class MarkdownEditContainer extends React.Component {
         }
     }
     render() {
-        const { content } = this.props
+        const { content, saveContent } = this.props
         return (
-            <Markdown content={content} path={this.path}></Markdown>
+            <Markdown content={content} path={this.pathname} saveHandle={saveContent}></Markdown>
         )
     }
 }
