@@ -34,7 +34,6 @@ export default class extends React.Component {
     render() {
         const { editContent } = this.state
         const { path } = this.props
-        console.log(path)
         return (
             <section className="markdown-form">
                 <div className="container-fluid">

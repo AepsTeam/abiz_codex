@@ -14,8 +14,9 @@ export default class Css extends React.Component {
         ]
     }
     render() {
+        const { location } = this.props
         return (
-            <Basic navData={this.sideBarData} children={this.props.children}></Basic>
+            <Basic navData={this.sideBarData} children={this.props.children} pathname={location.pathname}></Basic>
         )
     }
 }

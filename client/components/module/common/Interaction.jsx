@@ -13,8 +13,9 @@ export default class Interaction extends React.Component {
     }
     
     render() {
+        const { location } = this.props
         return (
-            <Basic navData={this.sideBarData} children={this.props.children} location={this.props.location} ></Basic>
+            <Basic navData={this.sideBarData} children={this.props.children} pathname={location.pathname}></Basic>
         )
     }
 }

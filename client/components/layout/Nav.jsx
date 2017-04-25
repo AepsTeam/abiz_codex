@@ -1,14 +1,17 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { Link } from 'react-router'
 import '../../style/sass/layout.scss'
+import PropTypes from 'prop-types'
 
 export default class Nav extends React.Component {
     constructor(props) {
         super(props)
     }
     render() {
+        const { showFlag } = this.props
+        const style = showFlag ? { display: 'block' } : { display: 'none' }
         return (
-            <nav>
+            <nav style={style}>
                 <div className="container-fluid bg-primary ">
                     <div className="navbar-header">
                         <Link to="/home" className="navbar-brand">Codex</Link>
@@ -31,6 +34,10 @@ export default class Nav extends React.Component {
             </nav>
         )
     }
+}
+
+Nav.propTypes = {
+    showFlag: PropTypes.bool
 }
 
 

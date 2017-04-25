@@ -23,7 +23,7 @@ function mapDispatchToProps(dispatch, ownProps) {
 class MarkdownEditContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.pathname = ''
+        this.pathname = this.getPath(props.location.pathname)
         this.getPath = this.getPath.bind(this)
     }
     getPath(pathname) {

@@ -4,13 +4,12 @@ import PropTypes from 'prop-types'
 
 export default class SubNav extends React.Component {
     render() {
-        const { navData, title, showFlag } = this.props
+        const { navData, title } = this.props
         const navDomStr = navData.map((nav, index) =>
             <li key={index}><Link to={nav.url} activeClassName="active">{nav.name}</Link></li>
         )
-        const style = showFlag ? { display: 'block' } : { display: 'none' }
         return (
-            <div className="row" style={style}>
+            <div className="row">
                 <div className="col-md-offset-1 col-md-2">
                     <div className="navbar-header">
                         <a href="javascript:;" className="navbar-brand">
@@ -29,7 +28,6 @@ export default class SubNav extends React.Component {
 }
 
 SubNav.propTypes = {
-    showFlag: PropTypes.bool,
     navData: PropTypes.array,
     title: PropTypes.string
 }
