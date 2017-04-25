@@ -6,7 +6,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div >
-                <Nav history={false}></Nav>
+                <Nav></Nav>
                 {this.props.children}
             </div>
         )

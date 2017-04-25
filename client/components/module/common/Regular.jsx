@@ -12,7 +12,7 @@ export default class Regular extends React.Component {
     }
     render() {
         return (
-            <Basic navData={this.sideBarData} children={this.props.children}></Basic>
+            <Basic navData={this.sideBarData} children={this.props.children} location={this.props.location}></Basic>
         )
     }
 }

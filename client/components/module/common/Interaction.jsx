@@ -11,9 +11,10 @@ export default class Interaction extends React.Component {
             { name: '产出及规则', url: '/codex/common/interaction/output_rules' }
         ]
     }
+    
     render() {
         return (
-            <Basic navData={this.sideBarData} children={this.props.children}></Basic>
+            <Basic navData={this.sideBarData} children={this.props.children} location={this.props.location} ></Basic>
         )
     }
 }

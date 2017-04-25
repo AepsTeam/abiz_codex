@@ -31,7 +31,7 @@ export default class MarkdownShow extends React.Component {
     }
     render() {
         return (
-            <span dangerouslySetInnerHTML={this.createMarkup()}></span>
+            <div className="markdown-preview" dangerouslySetInnerHTML={this.createMarkup()}></div>
         )
     }
 }

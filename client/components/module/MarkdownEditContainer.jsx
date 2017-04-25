@@ -18,26 +18,35 @@ function mapDispatchToProps(dispatch, ownProps) {
     }
 }
 
-class MarkdownContainer extends React.Component {
+class MarkdownEditContainer extends React.Component {
+    constructor(props) {
+        super(props)
+        this.pathname = ''
+        this.getPath = this.getPath.bind(this)
+    }
+    getPath(pathname) {
+        const pathArr = pathname.split('/')
+        const path = '/' + pathArr.splice(2, pathArr.length - 1).join('/')
+        this.path = path
+        return path
+    }
     componentDidMount() {
         const { getContent, location } = this.props
-        getContent({pathname: location.pathname})
+        getContent({ pathname: this.getPath(location.pathname) })
     }
     componentWillReceiveProps(nextProps) {
         const { getContent } = this.props
-        console.log(nextProps.params.tab)
-        if (this.props.params.tab != nextProps.params.tab) {
+        if (this.props.location.pathname != nextProps.location.pathname) {
             document.getElementsByTagName('body')[0].scrollTop = 0
-            getContent({pathname: nextProps.location.pathname})
+            getContent({ pathname: this.getPath(nextProps.location.pathname) })
         }
     }
     render() {
         const { content } = this.props
-        console.log(content)    
         return (
-            <Markdown content={content}></Markdown>
+            <Markdown content={content} path={this.path}></Markdown>
         )
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MarkdownContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(MarkdownEditContainer)

@@ -1,33 +1,59 @@
 import React from 'react'
+import { Link } from 'react-router'
 import brace from 'brace';
 import AceEditor from 'react-ace';
 import 'brace/mode/markdown'
 import 'brace/theme/monokai'
-import MarkDownShow from './MarkdownShow'
+import MarkdownPreview from './MarkdownPreview'
 
 
 export default class extends React.Component {
     constructor(props) {
         super(props)
-        this.editContent = this.content
+        this.onChange = this.onChange.bind(this)
+        this.state = {
+            editContent: props.content
+        }
     }
     onChange(newValue) {
-        this.editContent = this.newValue
+        this.setState({ editContent: newValue })
+    }
+    componentWillReceiveProps(nextProps) {
+        const { content } = nextProps
+        const { editContent } = this.state
+        if (editContent == '') {
+            this.setState({ editContent: content })
+        }
     }
     render() {
-        const { content } = this.props
-        this.editContent = content
+        const { editContent } = this.state
+        const { path } = this.props
+        console.log(path)
         return (
-            <section>
-                <AceEditor
-                    mode="markdown"
-                    theme="monokai"
-                    name="UNIQUE_ID_OF_DIV"
-                    editorProps={{ $blockScrolling: true }}
-                    value={this.editContent}
-                    onChange={this.onChange}
-                />
-                <MarkDownShow content={this.content} ></MarkDownShow>
+            <section className="markdown-form">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <AceEditor
+                                mode="markdown"
+                                theme="monokai"
+                                name="UNIQUE_ID_OF_DIV"
+                                editorProps={{ $blockScrolling: true }}
+                                value={editContent}
+                                onChange={this.onChange}
+                                height='800px'
+                                width="100%"
+                            />
+                        </div>
+                        <div className="col-md-6">
+                            <MarkdownPreview content={editContent} ></MarkdownPreview>
+                        </div>
+                    </div>
+                    <div className="row fixed">
+                        <button className="btn btn-primary btn-md" type="button">提交</button>
+                        <Link to={path} className="btn btn-default btn-md" role="button">取消</Link>
+                    </div>
+                </div>
             </section>
         )
     }

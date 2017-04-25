@@ -19,7 +19,7 @@ module.exports = {
         extensions: [".js", ".jsx", ".json", ".scss"]
     },
     context: resolve(__dirname, '../client'),
-    devtool: 'inline-source-map',
+    devtool: 'cheap-source-map',
     devServer: {
         hot: true,
         contentBase: resolve(__dirname, '../client'),

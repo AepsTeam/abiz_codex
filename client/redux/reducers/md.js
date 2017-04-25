@@ -3,7 +3,7 @@ import { fromJS, List } from 'immutable'
 import * as constant from '../constant/md'
 
 const mdContent = (
-    state = fromJS({ isFetching: false, data: '11' }),
+    state = fromJS({ isFetching: false, data: '' }),
     action
 ) => {
     switch (action.type) {
