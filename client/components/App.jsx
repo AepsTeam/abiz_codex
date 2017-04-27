@@ -18,9 +18,9 @@ export default class App extends React.Component {
     componentWillReceiveProps(nextProps) {
         const nextPath = nextProps.location.pathname
         const currentPath = this.props.location.pathname
-        if (nextPath.indexOf('/edit') == 0 || currentPath.indexOf('/edit') == -1) {
+        if (nextPath.indexOf('/edit') == 0 && currentPath.indexOf('/edit') == -1) {
             this.showFlag = false
-        } else if (nextPath.indexOf('/edit') == -1 || currentPath.indexOf('/edit') == 0) {
+        } else if (nextPath.indexOf('/edit') == -1 && currentPath.indexOf('/edit') == 0) {
             this.showFlag = true
         }
 
