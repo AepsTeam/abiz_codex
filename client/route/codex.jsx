@@ -16,7 +16,7 @@ import Plan from '../components/module/plan/index'
 // resource
 import Resource from '../components/module/resource/index'
 
-import MarkdownContainer from '../components/module/MarkdownPreviewContainer.jsx'
+import MarkdownContainer from '../components/basic/MarkdownPreviewContainer.jsx'
 
 export default (
     <Route path="codex">

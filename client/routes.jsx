@@ -5,7 +5,7 @@ import App from './components/App.jsx'
 
 //home
 import Home from './components/module/Home'
-import MarkdownEditContainer from './components/module/MarkdownEditContainer'
+import MarkdownEditContainer from './components/basic/MarkdownEditContainer'
 
 import CodexRoutes from './route/codex'
 
