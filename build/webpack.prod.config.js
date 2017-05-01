@@ -83,7 +83,6 @@ module.exports = {
             minChunks: Infinity
         }),
         new HtmlWebpackPlugin({
-            title: 'codex',
             filename: '../dist/index.html',
             template: '../views/index.html',
             favicon: 'favicon.ico',
