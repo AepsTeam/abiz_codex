@@ -19,7 +19,7 @@ module.exports = {
         extensions: [".js", ".jsx", ".json", ".scss"]
     },
     context: resolve(__dirname, '../client'),
-    devtool: 'cheap-source-map',
+    devtool: 'inline-source-map',
     devServer: {
         hot: true,
         contentBase: resolve(__dirname, '../client'),
@@ -81,9 +81,9 @@ module.exports = {
         new webpack.NamedModulesPlugin()
         // ,
         // new HtmlWebpackPlugin({
-        //     title: 'cnode',
+        //     title: 'codex',
         //     filename: '../dist/index.html',
-        //     template: 'index.html',
+        //     template: '../views/index.html',
         //     favicon: 'favicon.ico',
         //     minify: {
         //         removeComments: false,
