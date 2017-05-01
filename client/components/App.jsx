@@ -5,7 +5,12 @@ import { Link } from 'react-router'
 export default class App extends React.Component {
     constructor(props) {
         super(props)
-        this.showFlag = true
+        if (props.location.pathname.indexOf('/edit') == 0) {
+            this.showFlag = false
+        } else {
+            this.showFlag = true
+        }
+
     }
     render() {
         return (

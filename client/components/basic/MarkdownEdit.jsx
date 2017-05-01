@@ -7,6 +7,7 @@ import 'brace/theme/monokai'
 import MarkdownPreview from './MarkdownPreview'
 
 
+
 export default class extends React.Component {
     constructor(props) {
         super(props)
@@ -20,8 +21,8 @@ export default class extends React.Component {
         this.setState({ editContent: newValue })
     }
     onSubmit() {
-        const { saveHandle, path } = this.props
         const { editContent } = this.state
+        const { saveHandle, path } = this.props
         saveHandle({ pathname: path, content: editContent })
     }
     componentWillReceiveProps(nextProps) {

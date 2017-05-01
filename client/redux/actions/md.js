@@ -1,4 +1,6 @@
 import * as constant from '../constant/md'
+import * as modal from './modal'
+
 import {
     getUrl
 } from '../../utils/url_parse'
@@ -58,7 +60,7 @@ export function getMD(param) {
     }
 }
 
-export function saveMD(param) {
+export function saveMD(param, ownProps) {
     return dispatch => {
         dispatch(writeMdBegin())
         const url = '/md' + param.pathname
@@ -75,6 +77,8 @@ export function saveMD(param) {
             return response.json()
         }).then(function (json) {
             dispatch(writeMdSuccess(json))
+            dispatch(modal.setModalHide())
+            ownProps.router.replace(param.pathname)
         }).then(function (err) {
             console.log(err)
             dispatch(writeMdFialure())

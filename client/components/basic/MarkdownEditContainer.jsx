@@ -1,12 +1,14 @@
 import React from 'react'
 import Markdown from './MarkdownEdit'
+import Modal from './Modal'
 import { connect } from 'react-redux'
 import { getMD, saveMD } from '../../redux/actions/md'
-
+import { setModalShow, setModalHide } from '../../redux/actions/modal'
 
 function mapStateToProps(state, ownProps) {
     return {
-        content: state.get('rootReducer').get('mdReducer').get('mdContent').get('data')
+        content: state.get('rootReducer').get('mdReducer').get('mdContent').get('data'),
+        showModal: state.get('rootReducer').get('modalReducer').get('modalContent').get('showModal')
     }
 }
 function mapDispatchToProps(dispatch, ownProps) {
@@ -15,7 +17,13 @@ function mapDispatchToProps(dispatch, ownProps) {
             dispatch(getMD(params))
         },
         saveContent: function (params) {
-            dispatch(saveMD(params))
+            dispatch(saveMD(params, ownProps))
+        },
+        setModalShow: function () {
+            dispatch(setModalShow())
+        },
+        setModalHide: function () {
+            dispatch(setModalHide())
         }
     }
 }
@@ -25,6 +33,10 @@ class MarkdownEditContainer extends React.Component {
         super(props)
         this.pathname = this.getPath(props.location.pathname)
         this.getPath = this.getPath.bind(this)
+        this.content = ''
+        this.modalSubmitHandle = this.modalSubmitHandle.bind(this)
+        this.closeSubmitHandle = this.closeSubmitHandle.bind(this)
+        this.saveHandle = this.saveHandle.bind(this)
     }
     getPath(pathname) {
         const pathArr = pathname.split('/')
@@ -43,10 +55,29 @@ class MarkdownEditContainer extends React.Component {
             getContent({ pathname: this.getPath(nextProps.location.pathname) })
         }
     }
+    closeSubmitHandle() {
+        const { setModalHide } = this.props
+        setModalHide()
+    }
+    modalSubmitHandle() {
+        const { saveContent } = this.props
+        saveContent({ pathname: this.pathname, content: this.content })
+    }
+    saveHandle(params) {
+        const { setModalShow } = this.props
+        console.log(params.pathname)
+        console.log(params.content)
+        this.content = params.content
+        setModalShow()
+    }
     render() {
-        const { content, saveContent } = this.props
+        const { content, saveContent, showModal } = this.props
+        const str = <p>确定修改？</p>
         return (
-            <Markdown content={content} path={this.pathname} saveHandle={saveContent}></Markdown>
+            <div>
+                <Markdown content={content} path={this.pathname} saveHandle={this.saveHandle}></Markdown>
+                <Modal isOpen={showModal} modalContent={str} closeHandle={this.closeSubmitHandle} submitHandle={this.modalSubmitHandle}></Modal>
+            </div>
         )
     }
 }
