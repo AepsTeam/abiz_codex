@@ -4,9 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var routesConfig = require('./routes/config')
 
-var index = require('./routes/index');
-var md = require('./routes/md');
 
 var app = express();
 
@@ -18,15 +17,12 @@ app.set('view engine', 'html');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', index);
-app.use('/home', index);
-app.use('/codex/*', index);
-app.use('/edit/*', index);
-app.use('/md', md);
+routesConfig(app)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
