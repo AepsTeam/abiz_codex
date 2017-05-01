@@ -6,7 +6,7 @@
     "dev": "webpack-dev-server --config ./build/webpack.dev.config.js --port 8081",
     "prod": "rimraf dist && webpack --config ./build/webpack.prod.config.js --progress --hide-modules",
     "server_dev": "node ./bin/www",
-    "server_prod": "set NODE_ENV=production node ./bin/www"
+    "server_prod": "set NODE_ENV=production&&node ./bin/www"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
