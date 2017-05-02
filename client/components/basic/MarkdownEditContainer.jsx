@@ -65,8 +65,6 @@ class MarkdownEditContainer extends React.Component {
     }
     saveHandle(params) {
         const { setModalShow } = this.props
-        console.log(params.pathname)
-        console.log(params.content)
         this.content = params.content
         setModalShow()
     }

@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack')
 
 const extractSass = new ExtractTextPlugin({
@@ -10,7 +10,7 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
     entry: {
-        app: '../client/index.jsx',
+        'app': '../client/index.jsx',
         'react_vendor': ['react', 'react-dom']
     },
     output: {
@@ -75,6 +75,11 @@ module.exports = {
     },
     plugins: [
         extractSass,
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
         new webpack.optimize.UglifyJsPlugin({
             minimize: true
         }),
@@ -83,6 +88,7 @@ module.exports = {
             minChunks: Infinity
         }),
         new HtmlWebpackPlugin({
+            mode: 'prod',
             filename: '../dist/index.html',
             template: '../views/index.html',
             favicon: 'favicon.ico',
@@ -91,6 +97,7 @@ module.exports = {
                 removeComments: false,
                 collapseWhitespace: true
             }
-        })
+        }),
+        new CopyWebpackPlugin([{ from: '../views/error.html', to: '../dist/error.html' }])
     ]
 }

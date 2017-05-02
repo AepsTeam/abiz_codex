@@ -25,7 +25,6 @@ class MarkdownContainer extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         const { getContent } = this.props
-        console.log(nextProps.params.tab)
         if (this.props.params.tab != nextProps.params.tab) {
             document.getElementsByTagName('body')[0].scrollTop = 0
             getContent({pathname: nextProps.location.pathname})
@@ -33,7 +32,6 @@ class MarkdownContainer extends React.Component {
     }
     render() {
         const { content } = this.props
-        console.log(content)    
         return (
             <Markdown content={content}></Markdown>
         )

@@ -1,5 +1,4 @@
 const { resolve } = require('path')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
@@ -78,15 +77,6 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({
-            filename: '../dist/index.html',
-            template: '../views/index.html',
-            favicon: 'favicon.ico',
-            minify: {
-                removeComments: false,
-                collapseWhitespace: true
-            }
-        })
+        new webpack.NamedModulesPlugin()
     ]
 }

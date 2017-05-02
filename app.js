@@ -12,6 +12,7 @@ var app = express();
 console.log(typeof process.env.NODE_ENV)
 if (process.env.NODE_ENV === 'production') {
   app.set('views', path.join(__dirname, 'dist'));
+  
 } else {
   app.set('views', path.join(__dirname, 'views'));
 }
@@ -27,5 +28,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 routesConfig(app)
 module.exports = app;
