@@ -17,9 +17,11 @@ import Plan from '../components/module/plan/index'
 import Resource from '../components/module/resource/index'
 
 import MarkdownContainer from '../components/basic/MarkdownPreviewContainer.jsx'
+import Register from '../components/user/Register'
 
 export default (
     <Route path="codex">
+        <Route path="register" component={Register} />>
         <Route path="common" component={CommonIndex}>
             <IndexRedirect to="/codex/common/regular/frontier" />
             <Route path="regular" component={Regular} >
