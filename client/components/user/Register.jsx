@@ -1,7 +1,23 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
+import { connect } from 'react-redux'
+import { imageUpload } from '../../redux/actions/upload'
 
-export default class Register extends React.Component {
+function mapStateToProps(state, ownProps) {
+    return {
+        content: state.get('rootReducer').get('uploadReducer').get('uploadContent')
+    }
+}
+function mapDispatchToProps(dispatch, ownProps) {
+    return {
+        upload: function (params) {
+            dispatch(imageUpload(params))
+        }
+    }
+}
+
+
+class Register extends React.Component {
     constructor(props) {
         super(props)
         this.onImageDrop = this.onImageDrop.bind(this)
@@ -13,7 +29,8 @@ export default class Register extends React.Component {
         }
     }
     handleImageUpload(file) {
-
+        const { upload } = this.props
+        upload({ file: file })
     }
     onImageDrop(files) {
         this.setState({
@@ -57,3 +74,5 @@ export default class Register extends React.Component {
         )
     }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

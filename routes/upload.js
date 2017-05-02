@@ -1,3 +1,4 @@
+var express = require('express');
 var router = express.Router();
 var formidable = require('formidable');
 var fs = require('fs')
@@ -57,3 +58,5 @@ router.post('/temp/image/*', function (req, res, next) {
         }
     })
 })
+
+module.exports = router;
