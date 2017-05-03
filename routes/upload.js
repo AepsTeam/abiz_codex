@@ -2,12 +2,13 @@ var express = require('express');
 var router = express.Router();
 var formidable = require('formidable');
 var fs = require('fs')
-
+var path = require('path')
 
 router.post('/temp/image/*', function (req, res, next) {
-    var cacheFolder = './public/upload/temp/';
-    var userDirPath = cacheFolder + 'xubaoshi'
-    if (!fs.existsSync(cacheFolder)) {
+    // var cacheFolder = './public/upload/temp';
+    var userDirPath = path.resolve(__dirname,'../public/upload/temp/xubaoshi')
+    // var userDirPath = cacheFolder + '/xubaoshi'
+    if (!fs.existsSync(userDirPath)) {
         fs.mkdirSync(userDirPath);
     }
     var form = new formidable.IncomingForm();
@@ -26,7 +27,7 @@ router.post('/temp/image/*', function (req, res, next) {
             return;
         }
         var extName = '';
-        switch (file.upload.type) {
+        switch (files.file.type) {
             case 'image/pjpeg':
                 extName = 'jpg';
                 break;
@@ -50,10 +51,10 @@ router.post('/temp/image/*', function (req, res, next) {
             var avatarName = '/' + Date.now() + '.' + extName;
             var newPath = form.uploadDir + avatarName;
             displayUrl = form.uploadDir + avatarName;
-            fs.renameSync(files.upload.path, newPath);
+            fs.renameSync(files.file.path, newPath);
             res.json({
                 result: true,
-                err: displayUrl
+                displayUrl: displayUrl
             })
         }
     })
