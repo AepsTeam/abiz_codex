@@ -11,7 +11,7 @@ export default class Basic extends React.Component {
                     <div className="col-md-offset-1 col-md-2">
                         <SideBarNav navData={navData}></SideBarNav>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-9">
                         <div className="row">
                             <div className="col-md-12">
                                 <Link className="btn btn-primary" to={'/edit' + pathname}> 编辑</Link>

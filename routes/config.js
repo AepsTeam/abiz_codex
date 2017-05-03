@@ -4,7 +4,12 @@ var upload = require('./upload');
 
 module.exports = function routesConfig(app) {
     app.use('/', index);
+
     app.use('/home', index);
+    app.use('/user_register', index);
+    app.use('/user_update', index);
+    app.use('/login', index);
+    
     app.use('/codex/*', index);
     app.use('/edit/*', index);
     app.use('/md', md);

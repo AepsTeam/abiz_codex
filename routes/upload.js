@@ -5,9 +5,7 @@ var fs = require('fs')
 var path = require('path')
 
 router.post('/temp/image/*', function (req, res, next) {
-    // var cacheFolder = './public/upload/temp';
-    var userDirPath = path.resolve(__dirname,'../public/upload/temp/xubaoshi')
-    // var userDirPath = cacheFolder + '/xubaoshi'
+    var userDirPath = path.resolve(__dirname, '../public/upload/temp')
     if (!fs.existsSync(userDirPath)) {
         fs.mkdirSync(userDirPath);
     }
@@ -54,7 +52,7 @@ router.post('/temp/image/*', function (req, res, next) {
             fs.renameSync(files.file.path, newPath);
             res.json({
                 result: true,
-                displayUrl: displayUrl
+                displayUrl: '/upload/temp' + avatarName
             })
         }
     })
