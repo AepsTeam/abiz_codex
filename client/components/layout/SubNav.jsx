@@ -10,14 +10,14 @@ export default class SubNav extends React.Component {
         )
         return (
             <div className="row">
-                <div className="col-md-offset-1 col-md-2">
+                <div className="col-md-2">
                     <div className="navbar-header">
                         <a href="javascript:;" className="navbar-brand">
                             <strong>{title}</strong>
                         </a>
                     </div>
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-10">
                     <ul className="nav navbar-nav navbar-right">
                         {navDomStr}
                     </ul>

@@ -24,7 +24,7 @@ export default class CommonIndex extends React.Component {
     }
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container">
                 <SubNav navData={this.subNavData} title={this.title}></SubNav>
                 <hr/>
                 {this.props.children}
