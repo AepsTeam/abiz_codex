@@ -1,5 +1,5 @@
 var express = require('express');
-var RedisStore = require('connect-redis')(express);
+// var RedisStore = require('connect-redis')(express);
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,14 +9,14 @@ var routesConfig = require('./routes/config')
 
 var app = express();
 
-app.use(express.session({
-  secret: 'codex',
-  store: new RedisStroe({
-    host: '127.0.0.1',
-    port: '6379',
-    db: 'sessiondb'
-  })
-}));
+// app.use(express.session({
+//   secret: 'codex',
+//   store: new RedisStroe({
+//     host: '127.0.0.1',
+//     port: '6379',
+//     db: 'sessiondb'
+//   })
+// }));
 
 // view engine setup
 if (process.env.NODE_ENV === 'production') {
