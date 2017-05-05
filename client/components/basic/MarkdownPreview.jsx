@@ -1,5 +1,6 @@
 import React from 'react'
 import marked from 'marked'
+import PropTypes from 'prop-types'
 
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -34,4 +35,8 @@ export default class MarkdownShow extends React.Component {
             <div className="markdown-preview" dangerouslySetInnerHTML={this.createMarkup()}></div>
         )
     }
+}
+
+MarkdownShow.propTypes = {
+    content: PropTypes.element
 }
