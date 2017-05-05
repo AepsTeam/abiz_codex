@@ -1,5 +1,5 @@
 import React from 'React'
-import '../../../style/sass/module/resource.scss'
+import 'style/sass/module/resource.scss'
 
 export default class List extends React.Component{
     constructor(props){
