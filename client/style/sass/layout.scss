@@ -3,13 +3,28 @@ a {
         color: #000;
     } 
 
+.navbar-default{
+    .navbar-nav{
+        > li{
+            > a{
+                &:hover,
+                &:active,
+                &.active{
+                    background-color: #97cb9f;
+                }
+            }
+        } 
+    } 
+} 
+
 .nav{
     > li{
         > a{
             &:hover,
             &:active,
             &.active{
-                background-color: #97cb9f
+                background-color: #97cb9f;
+                color:#000;
             }
         }
     } 
