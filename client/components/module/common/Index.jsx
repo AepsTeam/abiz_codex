@@ -1,5 +1,5 @@
 import React from 'react'
-import SubNav from '../../layout/SubNav'
+import SubNav from 'components/layout/SubNav'
 
 export default class CommonIndex extends React.Component {
     constructor(props) {

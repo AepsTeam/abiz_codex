@@ -1,5 +1,5 @@
 import React from 'react'
-import SideBarNav from '../../layout/SideBarNav'
+import SideBarNav from 'components/layout/SideBarNav'
 import { Link } from 'react-router'
 
 export default class Basic extends React.Component {

@@ -2,8 +2,8 @@ import React from 'react'
 import Markdown from './MarkdownEdit'
 import Modal from './Modal'
 import { connect } from 'react-redux'
-import { getMD, saveMD } from '../../redux/actions/md'
-import { setModalShow, setModalHide } from '../../redux/actions/modal'
+import { getMD, saveMD } from 'redux/actions/md'
+import { setModalShow, setModalHide } from 'redux/actions/modal'
 
 function mapStateToProps(state, ownProps) {
     return {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Markdown from './MarkdownPreview'
 import { connect } from 'react-redux'
-import { getMD } from '../../redux/actions/md'
+import { getMD } from 'redux/actions/md'
 
 
 function mapStateToProps(state, ownProps) {
