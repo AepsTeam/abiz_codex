@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, IndexRedirect } from 'react-router'
 
-import App from './components/App.jsx'
+import App from './components/App'
 
 import Home from './components/module/Home'
 import MarkdownEditContainer from './components/basic/MarkdownEditContainer'
