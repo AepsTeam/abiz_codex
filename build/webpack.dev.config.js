@@ -6,7 +6,7 @@ module.exports = {
         'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:8081',
         'webpack/hot/only-dev-server',
-        '../client/index.jsx'
+        './index.jsx'
     ],
     output: {
         filename: 'bundle.js',
@@ -15,7 +15,8 @@ module.exports = {
     },
     resolve: {
         // root: resolve(__dirname, 'node_modules'),
-        extensions: [".js", ".jsx", ".json", ".scss"]
+        extensions: [".js", ".jsx", ".json", ".scss"],
+        modules: [resolve(__dirname,'../client'),'node_modules']
     },
     context: resolve(__dirname, '../client'),
     devtool: 'inline-source-map',

@@ -19,7 +19,8 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: [".js", ".jsx", ".json", ".scss"]
+        extensions: [".js", ".jsx", ".json", ".scss"],
+        modules: [resolve(__dirname,'../client'),'node_modules']
     },
     context: resolve(__dirname, '../client'),
     module: {

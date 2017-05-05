@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import '../../style/sass/layout.scss'
+import 'style/sass/layout.scss'
 import PropTypes from 'prop-types'
 
 export default class Nav extends React.Component {
