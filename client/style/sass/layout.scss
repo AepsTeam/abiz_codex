@@ -3,9 +3,37 @@ a {
         color: #000;
     } 
 
-.active {
-    background-color: #97cb9f
+.navbar-default{
+    .navbar-nav{
+        > li{
+            > a{
+                &:hover,
+                &:active,
+                &.active{
+                    background-color: #97cb9f;
+                }
+            }
+        } 
+    } 
+} 
+
+.nav{
+    > li{
+        > a{
+            &:hover,
+            &:active,
+            &.active{
+                background-color: #97cb9f;
+                color:#000;
+            }
+        }
+    } 
+} 
+
+.navbar{
+    border-top:none;
 }
+
 
 hr{
     margin: 0 0 10px 0

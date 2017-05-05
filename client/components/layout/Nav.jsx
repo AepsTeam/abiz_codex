@@ -11,8 +11,8 @@ export default class Nav extends React.Component {
         const { showFlag } = this.props
         const style = showFlag ? { display: 'block' } : { display: 'none' }
         return (
-            <nav style={style}>
-                <div className="container-fluid bg-primary ">
+            <nav style={style} className="navbar navbar-default">
+                <div className="container-fluid">
                     <div className="navbar-header">
                         <Link to="/home" className="navbar-brand">Codex</Link>
                     </div>
