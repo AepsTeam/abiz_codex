@@ -6,8 +6,6 @@ import 'brace/mode/markdown'
 import 'brace/theme/monokai'
 import MarkdownPreview from './MarkdownPreview'
 
-
-
 export default class extends React.Component {
     constructor(props) {
         super(props)
