@@ -3,13 +3,14 @@ import classNames from 'classNames'
 
 export default class Panel extends React.Component{
     render(){
+        const {skin,title,content} = this.props
         return (
-            <div className={classNames('panel','panel-' + this.props.skin)}>
+            <div className={classNames('panel','panel-' + skin)}>
                 <div className="panel-heading">
-                    <h3 className="panel-title">{this.props.title}</h3>
+                    <h3 className="panel-title">{title}</h3>
                 </div>
                 <div className="panel-body">
-                    {this.props.content}
+                    {content}
                 </div>
             </div>
         )

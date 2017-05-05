@@ -6,7 +6,8 @@ export default class List extends React.Component{
         super(props)
     }
     render(){
-        const listDom=this.props.lists.map((item,index) =>
+        const {lists} = this.props
+        const listDom=lists.map((item,index) =>
             <div className="col-md-3" key={index}>
                 <div className="resource-box">
                     <a href={item.href}>
