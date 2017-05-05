@@ -3,9 +3,18 @@ a {
         color: #000;
     } 
 
-.active {
-    background-color: #97cb9f
-}
+.nav{
+    > li{
+        > a{
+            &:hover,
+            &:active,
+            &.active{
+                background-color: #97cb9f
+            }
+        }
+    } 
+} 
+
 
 hr{
     margin: 0 0 10px 0
