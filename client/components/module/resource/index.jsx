@@ -364,7 +364,6 @@ export default class Index extends React.Component{
         ]
     }
     render(){
-        
         return (
             <div className="container">
                <div className="row">
@@ -374,7 +373,7 @@ export default class Index extends React.Component{
                             const contentDom=(
                                 <List lists={item.list}></List>
                             )
-                            return <Panel key={index} item={item} content={contentDom}></Panel>
+                            return <Panel key={index} title={item.title} skin='default' content={contentDom}></Panel>
                         })
                         }
                    </div>
