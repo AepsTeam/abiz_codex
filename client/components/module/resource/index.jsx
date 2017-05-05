@@ -1,4 +1,5 @@
 import React from 'react'
+import Panel from 'components/basic/panel.jsx'
 import List from './List'
 
 export default class Index extends React.Component{
@@ -363,21 +364,19 @@ export default class Index extends React.Component{
         ]
     }
     render(){
+        
         return (
             <div className="container">
                <div className="row">
                    <div className="col-md-12">
                        {
-                        this.resourceData.map((item,index) =>
-                           <div className="panel panel-default" key={index}>
-                                <div className="panel-heading">
-                                    <h3 className="panel-title">{item.title}</h3>
-                                </div>
-                                <div className="panel-body">
-                                    <List lists={item.list}></List>
-                                </div>
-                          </div>
-                       )}
+                        this.resourceData.map((item,index) =>{
+                            const contentDom=(
+                                <List lists={item.list}></List>
+                            )
+                            return <Panel key={index} item={item} content={contentDom}></Panel>
+                        })
+                        }
                    </div>
                </div>
                
