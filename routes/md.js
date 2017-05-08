@@ -10,9 +10,10 @@ router.get('/*', function (req, res, next) {
     if (err) {
       console.log(err);
       res.json('read file failed!');
-      return;
+      return next();
     }
     res.json(data);
+    return next();
   })
 });
 
@@ -24,11 +25,12 @@ router.post('/*', function (req, res, next) {
       res.json({
         result: false
       })
-      return;
+     return next();
     }
     res.json({
       result: true
     })
+    return next();
   })
 })
 

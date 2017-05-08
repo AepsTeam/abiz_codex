@@ -7,7 +7,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var routesConfig = require('./routes/config')
+
+var routesConfig = require('./routes/config');
+var connentRedisDataBase = require('./db');
 
 var app = express();
 
@@ -16,7 +18,7 @@ app.use(session({
   store: new RedisStore({
     host: '127.0.0.1',
     port: '6379',
-    db: 'sessiondb'
+    db: 2
   })
 }));
 
@@ -40,5 +42,6 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'dist')));
-routesConfig(app)
+routesConfig(app);
+connentRedisDataBase(app);
 module.exports = app;

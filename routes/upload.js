@@ -23,7 +23,7 @@ router.post('/temp/image/*', function (req, res, next) {
                 result: false,
                 err: err
             })
-            return;
+            return next();
         }
         var extName = '';
         switch (file.upload.type) {
@@ -45,7 +45,7 @@ router.post('/temp/image/*', function (req, res, next) {
                 result: false,
                 err: '只支持png和jpg格式图片'
             })
-            return;
+            return next();
         } else {
             var avatarName = '/' + Date.now() + '.' + extName;
             var newPath = form.uploadDir + avatarName;
@@ -55,6 +55,7 @@ router.post('/temp/image/*', function (req, res, next) {
                 result: true,
                 err: displayUrl
             })
+            return next();
         }
     })
 })

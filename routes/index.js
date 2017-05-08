@@ -11,6 +11,7 @@ router.get('/', function (req, res, next) {
         }
       }
     });
+    return next();
   } else {
     res.render('index', {
       htmlWebpackPlugin: {
@@ -19,8 +20,8 @@ router.get('/', function (req, res, next) {
         }
       }
     });
+    return next();
   }
-
 });
 
 module.exports = router;

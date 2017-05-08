@@ -38,5 +38,5 @@ export default class MarkdownShow extends React.Component {
 }
 
 MarkdownShow.propTypes = {
-    content: PropTypes.element
+    content: PropTypes.string
 }
