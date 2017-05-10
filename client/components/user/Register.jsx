@@ -2,16 +2,21 @@ import React from 'react'
 import Dropzone from 'react-dropzone'
 import { connect } from 'react-redux'
 import { imageUpload } from '../../redux/actions/upload'
+import { register } from '../../redux/actions/user'
 
 function mapStateToProps(state, ownProps) {
     return {
-        content: state.get('rootReducer').get('uploadReducer').get('uploadContent')
+        uploadContent: state.get('rootReducer').get('uploadReducer').get('uploadContent'),
+        registerContent:state.get('rootReducer').get('userReducer').get('registerContent')
     }
 }
 function mapDispatchToProps(dispatch, ownProps) {
     return {
         upload: function (params) {
             dispatch(imageUpload(params))
+        },
+        register:function(params){
+            dispatch(register(params))
         }
     }
 }
@@ -36,9 +41,6 @@ class Register extends React.Component {
         this.setState({
             uploadedFile: files[0]
         });
-        console.log(files)
-        console.log(files[0])
-
         this.handleImageUpload(files[0]);
     }
     render() {
