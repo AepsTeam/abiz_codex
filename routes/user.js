@@ -19,7 +19,6 @@ router.post('/', function (req, res, err) {
                 reysult: 'success',
                 data: user.allProperties()
             });
-            return next();
         }
     })
 })
