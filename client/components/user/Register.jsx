@@ -7,7 +7,7 @@ import { register } from '../../redux/actions/user'
 function mapStateToProps(state, ownProps) {
     return {
         uploadContent: state.get('rootReducer').get('uploadReducer').get('uploadContent'),
-        registerContent:state.get('rootReducer').get('userReducer').get('registerContent')
+        registerContent: state.get('rootReducer').get('userReducer').get('registerContent')
     }
 }
 function mapDispatchToProps(dispatch, ownProps) {
@@ -15,8 +15,8 @@ function mapDispatchToProps(dispatch, ownProps) {
         upload: function (params) {
             dispatch(imageUpload(params))
         },
-        register:function(params){
-            dispatch(register(params))
+        register: function (params) {
+            dispatch(register(params,ownProps))
         }
     }
 }
@@ -27,11 +27,17 @@ class Register extends React.Component {
         super(props)
         this.onImageDrop = this.onImageDrop.bind(this)
         this.handleImageUpload = this.handleImageUpload.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
         this.state = {
             uploadedFile: '',
             name: '',
             password: ''
         }
+    }
+    onSubmit() {
+        const { uploadedFile, name, password } = this.state
+        const { register } = this.props
+        register({ name: name, password: password })
     }
     handleImageUpload(file) {
         const { upload } = this.props
@@ -49,15 +55,15 @@ class Register extends React.Component {
             <div className="container-fluid">
                 <form className="form-horizontal">
                     <div className="form-group">
-                        <label htmlFor="name" className="col-md-2 col-md-offset-2 control-label" value={name}>姓名</label>
+                        <label htmlFor="name" className="col-md-2 col-md-offset-2 control-label" >姓名</label>
                         <div className="col-md-4">
-                            <input type="text" className="form-control" placeholder="请输入" />
+                            <input type="text" className="form-control" placeholder="请输入" value={name} />
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="name" className="col-md-2 col-md-offset-2 control-label" value={password}>密码</label>
+                        <label htmlFor="name" className="col-md-2 col-md-offset-2 control-label" >密码</label>
                         <div className="col-md-4">
-                            <input type="password" className="form-control" placeholder="请输入" />
+                            <input type="password" className="form-control" value={password} placeholder="请输入" />
                         </div>
                     </div>
                     <div className="form-group">
@@ -70,6 +76,9 @@ class Register extends React.Component {
                                 <p>Drop an image or click to select a file to upload.</p>
                             </Dropzone>
                         </div>
+                    </div>
+                    <div className="col-md-offset-4 col-md-4">
+                        <button type="button" className="btn btn-primary" onClick={this.onSubmit}>提交</button>
                     </div>
                 </form>
             </div>
