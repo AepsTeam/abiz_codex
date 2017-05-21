@@ -2,7 +2,7 @@ var config = require('./config.json')
 var Nohm = require('nohm').Nohm
 var redis = require('redis');
 
-var UserModel = require('./models/user')
+var UserModel = require('./models/User')
 
 
 var connentRedisDataBase = function (app) {

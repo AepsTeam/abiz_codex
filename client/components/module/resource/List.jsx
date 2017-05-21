@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import 'style/sass/module/resource.scss'
 
 export default class List extends React.Component{

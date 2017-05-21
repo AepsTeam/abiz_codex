@@ -1,5 +1,5 @@
 import React from 'react'
-import Panel from 'components/basic/panel.jsx'
+import Panel from 'components/basic/Panel.jsx'
 import List from './List'
 
 export default class Index extends React.Component{

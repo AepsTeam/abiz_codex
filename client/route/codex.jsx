@@ -2,21 +2,21 @@ import React from 'react'
 import { Route, IndexRedirect } from 'react-router'
 
 // common
-import CommonIndex from '../components/module/common/Index'
-import Regular from '../components/module/common/Regular'
-import Interaction from '../components/module/common/Interaction'
-import Vision from '../components/module/common/Vision'
-import Css from '../components/module/common/Css'
-import Js from '../components/module/common/Js'
+import CommonIndex from 'components/module/common/Index'
+import Regular from 'components/module/common/Regular'
+import Interaction from 'components/module/common/Interaction'
+import Vision from 'components/module/common/Vision'
+import Css from 'components/module/common/Css'
+import Js from 'components/module/common/Js'
 
 // pm
-import PM from '../components/module/pm/index'
+import PM from 'components/module/pm/Index'
 // plan
-import Plan from '../components/module/plan/index'
+import Plan from 'components/module/plan/Index'
 // resource
-import Resource from '../components/module/resource/index'
+import Resource from 'components/module/resource/Index'
 
-import MarkdownContainer from '../components/basic/MarkdownPreviewContainer.jsx'
+import MarkdownContainer from 'components/basic/MarkdownPreviewContainer.jsx'
 
 
 export default (
