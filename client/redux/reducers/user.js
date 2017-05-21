@@ -3,7 +3,7 @@ import { fromJS, List } from 'immutable'
 import * as constant from '../constant/user'
 
 const registerContent = (
-    state = fromJS({ isFetching: false, data: '' }),
+    state = fromJS({ isFetching: false, data: {name:'',password:'',imageUrl:''} }),
     action
 ) => {
     switch (action.type) {

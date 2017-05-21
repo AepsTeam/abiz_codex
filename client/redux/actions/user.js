@@ -23,15 +23,13 @@ export function registerBegin() {
 export function register(param) {
     return dispatch => {
         dispatch(registerBegin())
-        const url = ''
-        // const str = getUrl(url, param)
+        const url = '/user/'
         fetch(url, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-            })
+            body: JSON.stringify(param)
         }).then(function (response) {
             return response.json()
         }).then(function (json) {

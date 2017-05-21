@@ -28,16 +28,12 @@ class Register extends React.Component {
         this.onImageDrop = this.onImageDrop.bind(this)
         this.handleImageUpload = this.handleImageUpload.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
-        this.state = {
-            uploadedFile: '',
-            name: '',
-            password: ''
-        }
     }
     onSubmit() {
-        const { uploadedFile, name, password } = this.state
-        const { register } = this.props
-        register({ name: name, password: password })
+        const name = this.nameInput.value
+        const password = this.passwordInput.value
+        const {uploadContent,register} = this.props
+        register({ name: name, password: password ,photo:uploadContent.get('data').tempPhoto})
     }
     handleImageUpload(file) {
         const { upload } = this.props
@@ -50,31 +46,36 @@ class Register extends React.Component {
         this.handleImageUpload(files[0]);
     }
     render() {
-        const { uploadedFile, name, password } = this.state
+        const {uploadContent} = this.props
         return (
             <div className="container-fluid">
                 <form className="form-horizontal">
                     <div className="form-group">
                         <label htmlFor="name" className="col-md-2 col-md-offset-2 control-label" >姓名</label>
                         <div className="col-md-4">
-                            <input type="text" className="form-control" placeholder="请输入" value={name} />
+                            <input type="text" ref={(input) => this.nameInput = input} className="form-control" placeholder="请输入"  />
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="name" className="col-md-2 col-md-offset-2 control-label" >密码</label>
+                        <label htmlFor="name"  className="col-md-2 col-md-offset-2 control-label" >密码</label>
                         <div className="col-md-4">
-                            <input type="password" className="form-control" value={password} placeholder="请输入" />
+                            <input type="password" className="form-control" ref = {(input) => this.passwordInput = input } placeholder="请输入" />
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="name" className="col-md-2 col-md-offset-2 control-label">头像</label>
                         <div className="col-md-4">
-                            <Dropzone
-                                multiple={false}
-                                accept="image/*"
-                                onDrop={this.onImageDrop.bind(this)}>
-                                <p>Drop an image or click to select a file to upload.</p>
-                            </Dropzone>
+                            <div className="col-md-6">
+                                <Dropzone
+                                    multiple={false}
+                                    accept="image/*"
+                                    onDrop={this.onImageDrop.bind(this)}>
+                                    <p>Drop an image or click to select a file to upload.</p>
+                                </Dropzone>
+                            </div>
+                            <div className="col-md-6">
+                                <img width="100%" src={uploadContent.get('data').tempPhoto} />
+                            </div>
                         </div>
                     </div>
                     <div className="col-md-offset-4 col-md-4">

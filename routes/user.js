@@ -16,7 +16,7 @@ router.post('/', function (req, res, err) {
             next(err);
         } else {
             res.json({
-                reysult: 'success',
+                result: 'success',
                 data: user.allProperties()
             });
         }

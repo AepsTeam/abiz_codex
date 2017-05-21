@@ -3,7 +3,7 @@ import { fromJS} from 'immutable'
 import * as constant from '../constant/upload'
 
 const uploadContent = (
-    state = fromJS({ isUploading: false, data: '' }),
+    state = fromJS({ isUploading: false, data: {} }),
     action
 ) => {
     switch (action.type) {

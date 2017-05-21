@@ -5,7 +5,8 @@ var fs = require('fs')
 
 
 router.post('/temp/image/*', function (req, res, next) {
-    var cacheFolder = process.cwd() +  '/public/upload/temp/';
+    var uploadPath = '/upload/temp';
+    var cacheFolder = process.cwd() +  '/public' + uploadPath;
     if (!fs.existsSync(cacheFolder)) {
         fs.mkdirSync(cacheFolder);
     }
@@ -26,7 +27,6 @@ router.post('/temp/image/*', function (req, res, next) {
             return next();
         }
         var extName = '';
-        console.log(files);
         switch (files.file.type) {
             case 'image/pjpeg':
                 extName = 'jpg';
@@ -46,20 +46,15 @@ router.post('/temp/image/*', function (req, res, next) {
                 result: false,
                 err: '只支持png和jpg格式图片'
             })
-            return next();
         } else {
             var avatarName = '/' + Date.now() + '.' + extName;
             var newPath = form.uploadDir + avatarName;
-            displayUrl = form.uploadDir + avatarName;
-
-    console.log('newPath: ' + newPath);
-
+            var imageTempPath = uploadPath + avatarName;
             fs.renameSync(files.file.path, newPath);
             res.json({
                 result: true,
-                err: displayUrl
+                tempPhoto: imageTempPath
             })
-            return next();
         }
     })
 })
