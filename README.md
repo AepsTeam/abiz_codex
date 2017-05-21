@@ -1,5 +1,8 @@
 # abiz_codex
 
+## redis 
+redis_server || ./redis_server(ubuntu) 
+
 ## dev mode
   npm run dev
   
